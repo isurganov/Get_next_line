@@ -97,7 +97,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Ivan Surganov - [@isurganov](https://www.linkedin.com/in/ivansurganov/) - devsurganov@gmail.com
 
-Project Link: [https://github.com/isurganov/Libft](https://github.com/isurganov/Libft)
+Project Link: [https://github.com/isurganov/Get_next_line](https://github.com/isurganov/Get_next_line)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
