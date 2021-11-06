@@ -7,7 +7,6 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
-# include "libft.h"
 
 int		get_next_line(const int fd, char **line);
 
