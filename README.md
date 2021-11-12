@@ -51,23 +51,10 @@ First of all clone my repo with ```git clone```.
 ### Run it
 
 Some steps how to run this lib.
-* run Makefile
+* run this command
   ```sh
-  make 
+  gcc -Wall -Wextra -Werror -D BUFFER_SIZE=42 <files>.c
   ```
-* clean obj files
-  ```sh
-  make clean
-  ```
-* clean obj + get_next_line.a
-  ```sh
-  make fclean
-  ```
-* fclean all
-  ```sh
-  make re
-  ```
-
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
