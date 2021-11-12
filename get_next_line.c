@@ -1,26 +1,39 @@
 #include "get_next_line.h"
-
-static int	appendline(char **s, char **line)
+char	*ft_read_left_str(int fd, char *left_str)
 {
-	int		len;
-	char	*tmp;
+	char	*buff;
+	int		rd_b;
 
-	len = 0;
-	while ((*s)[len] != '\n' && (*s)[len] != '\0')
-		len++;
-	if ((*s)[len] == '\n')
+	buff = malloc((BUFF_SIZE + 1) * sizeof(char));
+	if (!buff)
+		return (NULL);
+	rd_b = 1;
+	while (!ft_strrchr(left_str, '\n') && rd_b != 0)
 	{
-		*line = ft_strsub(*s, 0, len);
-		tmp = ft_strdup(&((*s)[len + 1]));
-		free(*s);
-		*s = tmp;
-		if ((*s)[0] == '\0')
-			ft_strdel(s);
+		rd_b = read(fd, buff, BUFF_SIZE);
+		if (rd_b == -1)
+		{
+			free (buff);
+			return (NULL);
+		}
+		buff[rd_b] = '\0';
+		left_str = ft_strjoin(left_str, buff);
 	}
-	else
-	{
-		*line = ft_strdup(*s);
-		ft_strdel(s);
-	}
-	return (1);
+	free (buff);
+	return (left_str);
+}
+
+char	*get_next_line(int fd)
+{
+	char		*line;
+	static char	*left_str;
+
+	if (fd < 0 || BUFF_SIZE <= 0)
+		return (0);
+	left_str = ft_read_left_str(fd, left_str);
+	if (!left_str)
+		return (NULL);
+	line = ft_get_line(left_str);
+	left_str = ft_new_left(left_str);
+	return (line);
 }
