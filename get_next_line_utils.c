@@ -58,7 +58,7 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
-char	*ft_new_left_str(char *left_str)
+char	*ft_new_str(char *left_str)
 {
 	char	*str;
 	int		i;
